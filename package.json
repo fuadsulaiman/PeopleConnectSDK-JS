@@ -1,0 +1,57 @@
+{
+  "name": "@peopleconnect/sdk",
+  "version": "1.0.0",
+  "description": "Official JavaScript SDK for the PeopleConnect API",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "types.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./types": {
+      "types": "./types.d.ts",
+      "import": "./types.js",
+      "require": "./types.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "types.js",
+    "types.d.ts",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "lint": "eslint .",
+    "test": "node --test"
+  },
+  "keywords": [
+    "peopleconnect",
+    "sdk",
+    "api",
+    "chat",
+    "messaging",
+    "realtime",
+    "javascript"
+  ],
+  "author": "PeopleConnect",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peopleconnect/sdk-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peopleconnect/sdk-js/issues"
+  },
+  "homepage": "https://github.com/peopleconnect/sdk-js#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
