@@ -331,7 +331,7 @@ class AuthService {
    * @returns {Promise<{available: boolean}>}
    */
   async checkUsername(username) {
-    return this.http.get('/auth/check-username', { username });
+    return this.http.get(`/auth/check-username/${username}`);
   }
 
   /**
@@ -340,7 +340,7 @@ class AuthService {
    * @returns {Promise<import('./types').LoginResponse>}
    */
   async verifyTwoFactor(data) {
-    return this.http.post('/two-factor/verify', data);
+    return this.http.post('/auth/2fa/verify', data);
   }
 
   /**
@@ -1379,7 +1379,7 @@ class TwoFactorService {
    * @returns {Promise<import('./types').TwoFactorSetupResponse>}
    */
   async enable(password) {
-    return this.http.post('/two-factor/enable', { password });
+    return this.http.post('/auth/2fa/enable', { password });
   }
 
   /**
@@ -1389,7 +1389,7 @@ class TwoFactorService {
    * @returns {Promise<void>}
    */
   async disable(password, code) {
-    await this.http.post('/two-factor/disable', { password, code });
+    await this.http.post('/auth/2fa/disable', { password, code });
   }
 
   /**
@@ -1398,7 +1398,7 @@ class TwoFactorService {
    * @returns {Promise<void>}
    */
   async verify(code) {
-    await this.http.post('/two-factor/verify', { code });
+    await this.http.post('/auth/2fa/verify', { code });
   }
 
   /**
@@ -1406,7 +1406,7 @@ class TwoFactorService {
    * @returns {Promise<import('./types').BackupCodesResponse>}
    */
   async getBackupCodes() {
-    return this.http.get('/two-factor/backup-codes');
+    return this.http.get('/auth/2fa/backup-codes');
   }
 
   /**
@@ -1415,7 +1415,7 @@ class TwoFactorService {
    * @returns {Promise<import('./types').BackupCodesResponse>}
    */
   async regenerateBackupCodes(password) {
-    return this.http.post('/two-factor/regenerate-backup-codes', { password });
+    return this.http.post('/auth/2fa/backup-codes/regenerate', { password });
   }
 }
 
